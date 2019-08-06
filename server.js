@@ -1,20 +1,20 @@
-var express = require('express');
-var app = express();
-var http = require('http').createServer(app);
-var io = require('socket.io')(http);
-var Server = require('./server/server.js')
+const express = require('express');
+const app = express();
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
+const Server = require('./server/server.js');
 
-app.use(express.static('dist'))
+app.use(express.static('dist'));
 
-app.get('/', function(req, res){
-    res.sendFile(__dirname + '/dist/index.html');
-  });
-
-io.on('connection', function(socket){
-  let server = new Server(socket)
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/dist/index.html');
 });
 
-http.listen(3000, function(){
+io.on('connection', function(socket) {
+  new Server(socket);
+});
+
+http.listen(3000, function() {
   console.log('listening on *:80');
 });
 
