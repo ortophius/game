@@ -1,0 +1,28 @@
+body, html, table {
+    margin: 0px;
+    padding: 0px;
+    font-size: 0px;
+}
+
+canvas {
+    z-index: 1;
+}
+
+div {
+    font-size: initial;
+}
+
+#overlay {
+    z-index: 2;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#mainMenu {
+    background-color: #FFFFFF;
+    width: 40vw;
+}
