@@ -1,10 +1,8 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Source: client/classes/network.js | Source: client/classes/network.js</title>
+    <title>Namespace: GameObjects | Namespace: GameObjects</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -26,7 +24,7 @@
         
     </div>
     <div class="title">
-        <h1><a href="index.html" class="link">Source: client/classes/network.js</a></h1>
+        <h1><a href="index.html" class="link">Namespace: GameObjects</a></h1>
         
     </div>
     <div class="search-container" id="search-container">
@@ -43,88 +41,124 @@
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>const Cookies = require('js-cookie');
+        <h2>GameObjects</h2>
+        
+    
+</header>
 
-/**
- * Provides utilites for communicating the authority server.
- * @property {String} id - Player ID
- * @property {Soket.io} io - A Socket.io client instance
- * */
-class Network {
-  /** Create a instance of Network class. */
-  constructor() {
-    this.io = require('socket.io-client')();
-    this.id = null;
-    this.checkId(Cookies.get('id'));
-  }
+<article>
+    
+        <div class="container-overview">
+        
+            
 
-  /**
-  * Sets new ID to a player.
-  * @param {String} id
-  */
-  setId(id) {
-    this.id = id;
-    Cookies.set('id', id);
-  }
+            
 
-  /**
-   * Sending the ID from client to server for verifying.
-   * @param {String} id
-   */
-  async checkId(id) {
-    const _ = this;
-    console.log('id is: '+id);
-    if (typeof(id) !== 'string') this.setId(await this.queryId());
-    else {
-      this.io.once('checkIdReply', verifyId);
-      this.io.emit('checkId', id);
-    }
 
-    /**
-     * @private
-     * @function
-     * @param {Boolean} state
-     */
-    function verifyId(state) {
-      if (state) _.setId(id);
-    }
-  }
+<dl class="details">
 
-  /**
-   * Sending the request for a new ID to a server.
-   * @return {Promise}
-   */
-  queryId() {
-    const _ = this;
-    console.log('querying id');
+    
 
-    return new Promise(function(resolve, reject) {
-      _.io.once('getNewIdReply', function(id) {
-        _.checkId(id);
-      });
+    
 
-      _.io.emit('getNewId');
-    });
-  }
-}
+    
 
-/**
- * @return {Network} instance of Network
- */
-function getInstance() {
-  if (instance == null) instance = new Network();
-  return instance;
-}
+    
 
-let instance = null;
+    
 
-module.exports = getInstance();
-</code></pre>
-        </article>
-    </section>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+            <h3 class="subsection-title">Classes</h3>
+            
+
+<dl>
+    
+        <dt>
+            <h4 class="name">
+                <a href="GameObjects.GameObject.html">GameObject</a>
+                <div class="container-source members">
+                    <code><a href="GameObjects.GameObject.html">GameObjects.GameObject</a></code>
+                </div>
+            </h4>
+        </dt>
+        
+    
+        <dt>
+            <h4 class="name">
+                <a href="GameObjects.PhysicsObject.html">PhysicsObject</a>
+                <div class="container-source members">
+                    <code><a href="GameObjects.PhysicsObject.html">GameObjects.PhysicsObject</a></code>
+                </div>
+            </h4>
+        </dt>
+        
+    
+        <dt>
+            <h4 class="name">
+                <a href="GameObjects.Player.html">Player</a>
+                <div class="container-source members">
+                    <code><a href="GameObjects.Player.html">GameObjects.Player</a></code>
+                </div>
+            </h4>
+        </dt>
+        
+    
+</dl>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
@@ -141,7 +175,7 @@ module.exports = getInstance();
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = '_sub'.replace(/"/g, '_');
+        var id = 'GameObjects_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 

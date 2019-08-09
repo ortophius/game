@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Class: Db | Class: Db</title>
+    <title>Class: PhysicsObject | Class: PhysicsObject</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -24,7 +24,7 @@
         
     </div>
     <div class="title">
-        <h1><a href="index.html" class="link">Class: Db</a></h1>
+        <h1><a href="index.html" class="link">Class: PhysicsObject</a></h1>
         
     </div>
     <div class="search-container" id="search-container">
@@ -46,9 +46,10 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Db<span class="signature">()</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>
+            <span class="ancestors"><a href="GameObjects.html">GameObjects</a>~</span>PhysicsObject<span class="signature">(x, y, config)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description"><p>The MongoDB driver class</p></div>
+            <div class="class-description"><p>Class representing server-side physics bodies.</p></div>
         
     
 </header>
@@ -61,14 +62,14 @@
 
 <dt>
     
-        <h4 class="name" id="Db">
+        <h4 class="name" id="PhysicsObject">
             
-                new <span class="type-signature"></span>Db<span class="signature">()</span><span class="type-signature"></span>
+                new <span class="type-signature"></span>PhysicsObject<span class="signature">(x, y, config)</span><span class="type-signature"></span>
                 
             
             <div class="container-source members">
-                <code><a href="server_db.js.html">server/db.js</a></code>,
-                <code><a href="server_db.js.html#line12">line 12</a></code>
+                <code><a href="server_GameObjects_PhysicsObject.js.html">server/GameObjects/PhysicsObject.js</a></code>,
+                <code><a href="server_GameObjects_PhysicsObject.js.html#line14">line 14</a></code>
             </div>
             
         </h4>
@@ -79,17 +80,109 @@
 <dd>
 
     
-    <div class="description">
-        <p>Create an instance and establish connection to a database</p>
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The X coordinate of the object</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The Y coordinate of the object</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#PhysicsObjectConfig">PhysicsObjectConfig</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Configuration of physics body</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
     </div>
-    
-
-    
-
-    
-
-    
-
     
 
     
@@ -133,13 +226,13 @@
 
         <tr>
             
-                <td class="name"><code>mongoose</code></td>
+                <td class="name"><code>config</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">mongoose</span>
+<span class="param-type"><a href="global.html#PhysicsObjectConfig">PhysicsObjectConfig</a></span>
 
 
             
@@ -149,76 +242,7 @@
 
             
 
-            <td class="description last"><p>mongoose instance</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code></code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">mongoose.Connection</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>current connection</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code></code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">mongoose.Schema</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>player schema</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code></code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">mongoose.Model</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>player model</p></td>
+            <td class="description last"><p>Configuration of the physics object</p></td>
         </tr>
 
     
@@ -271,6 +295,15 @@
     
 
     
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li>GameObject</li>
+    </ul>
+
 
     
 
@@ -284,6 +317,151 @@
 
     
 
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+                
+
+<dt>
+    
+        <h4 class="name" id="assignConfig">
+            
+                <span class="type-signature"></span>assignConfig<span class="signature">(config)</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="server_GameObjects_PhysicsObject.js.html">server/GameObjects/PhysicsObject.js</a></code>,
+                <code><a href="server_GameObjects_PhysicsObject.js.html#line23">line 23</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Assign new physics config to physics object.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#PhysicsObjectConfig">PhysicsObjectConfig</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            </dl>
     
 
     
@@ -308,7 +486,7 @@
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = 'Db_sub'.replace(/"/g, '_');
+        var id = 'GameObjects.PhysicsObject_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 

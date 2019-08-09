@@ -1,29 +1,30 @@
+const playerList = require('./playerList.js');
 /**
  * Methods for creating `Player` instances.
  * @namespace
  * */
 const Players = {
-  /** @property {Object} defaultConfig Default player configuration. */
+  /** @property {Object} defaultConfig Default player configuration */
   defaultConfig: {
     name: 'Bebop',
     kills: 0,
     deaths: 0,
   },
 
-  playerList: require('./playerList.js'),
+  /** @property {PlayerList} playerList List of current players */
+  playerList: playerList,
 
   /**
-   * Get new `Player` object wit default config.
+   * Get new `Player` object with default config.
    * @function
-   * @param {String} id Player ID
-   * @param {String} name Player name
-   * @param {String} socketId current player's `socket.id`
+   * @param {string} id Player ID
+   * @param {string} name Player name
+   * @param {string} socketId current player's `socket.id`
    * @return {Object}
    */
   createPlayer: function(id, name, socketId) {
-    const newPlayer = {};
-    Object.assign(newPlayer, defaultConfig);
-    Object.assign(newPlayer, {
+    let newPlayer = Object.assign({}, defaultConfig);
+    newPlayer = Object.assign(newPlayer, {
       name: name,
       id: id,
       socketId: socketId,

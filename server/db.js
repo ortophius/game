@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 
 /** The MongoDB driver class
  * @property {mongoose} mongoose    - mongoose instance
- * @property {mongoose.connection}  - current connection
+ * @property {mongoose.Connection}  - current connection
  * @property {mongoose.Schema}      - player schema
- * @property {mongoose.model}       - player model
+ * @property {mongoose.Model}       - player model
  */
 class Db {
   /** Create an instance and establish connection to a database */

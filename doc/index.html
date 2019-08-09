@@ -2,23 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>Home | Home</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    <link type="text/css" rel="stylesheet" href="styles/tui-doc.css">
+
+    
 </head>
-
 <body>
+<nav class="lnb" id="lnb">
+    <div class="logo" style="">
+        
+            <img src="img/toast-ui.png" width="100%" height="100%">
+        
+    </div>
+    <div class="title">
+        <h1><a href="index.html" class="link">Home</a></h1>
+        
+    </div>
+    <div class="search-container" id="search-container">
+        <input type="text" placeholder="Search">
+        <ul></ul>
+    </div>
+    
+    <div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="Db.html">Db</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Db_sub"></div></li><li><a href="GameObjects.GameObject.html">GameObject</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="GameObjects.GameObject_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="GameObjects.GameObject.html#setDegreeAngle">setDegreeAngle</a></li><li><a href="GameObjects.GameObject.html#setRadianAngle">setRadianAngle</a></li></ul></div></li><li><a href="GameObjects.PhysicsObject.html">PhysicsObject</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="GameObjects.PhysicsObject_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="GameObjects.PhysicsObject.html#assignConfig">assignConfig</a></li></ul></div></li><li><a href="GameObjects.Player.html">Player</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="GameObjects.Player_sub"></div></li><li><a href="Network.html">Network</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Network_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="Network.html#checkId">checkId</a></li><li><a href="Network.html#queryId">queryId</a></li><li><a href="Network.html#setId">setId</a></li></ul></div></li><li><a href="Server.html">Server</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Server_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="Server.html#createId">createId</a></li><li><a href="Server.html#registerListeners">registerListeners</a></li><li><a href="Server.html#setNewId">setNewId</a></li></ul></div></li></ul></div><div class="lnb-api hidden"><h3>Namespaces</h3><ul><li><a href="GameObjects.html">GameObjects</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="GameObjects_sub"></div></li><li><a href="Players.html">Players</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Players_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="Players.html#.defaultConfig">defaultConfig</a></li><li><a href="Players.html#.playerList">playerList</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="Players.html#.createPlayer">createPlayer</a></li></ul></div></li></ul></div><div class="lnb-api hidden"><h3>Global</h3><ul><li><a href="global.html#getInstance">getInstance</a></li><li class="hidden"><a href="global.html#PhysicsObjectConfig">PhysicsObjectConfig</a></li><li class="hidden"><a href="global.html#SpeedObject">SpeedObject</a></li></ul></div>
+</nav>
+<div id="resizer"></div>
 
-<div id="main">
-
-    <h1 class="page-title">Home</h1>
-
+<div class="main" id="main">
     
 
 
@@ -26,10 +44,6 @@
     
 
 
-    <h3> </h3>
-
-
-
 
 
 
@@ -38,8 +52,6 @@
 
 
     
-
-
 
 
 
@@ -49,17 +61,24 @@
 
 </div>
 
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="Players.html">Players</a></li></ul><h3>Classes</h3><ul><li><a href="Db.html">Db</a></li><li><a href="Network.html">Network</a></li><li><a href="Server.html">Server</a></li></ul><h3>Global</h3><ul><li><a href="global.html#getInstance">getInstance</a></li></ul>
-</nav>
-
-<br class="clear">
-
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Wed Aug 07 2019 22:17:02 GMT+0400 (GMT+04:00)
+    <img class="logo" src="img/toast-ui.png" style="">
+    <div class="footer-text">NHN Entertainment. Frontend Development Lab</div>
 </footer>
+<script>prettyPrint();</script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/tui-doc.js"></script>
+<script src="scripts/linenumber.js"></script>
 
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
+    <script>
+        var id = 'package:undefined_sub'.replace(/"/g, '_');
+        var selectedApi = document.getElementById(id); // do not use jquery selector
+        var $selectedApi = $(selectedApi);
+
+        $selectedApi.removeClass('hidden');
+        $selectedApi.parent().find('.glyphicon').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+        showLnbApi();
+    </script>
+
 </body>
 </html>

@@ -45,7 +45,7 @@ class Server {
 
   /**
    * Geterates random string for new ID
-   * @return {String}
+   * @return {string}
    */
   createId() {
     let id = '';

@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Source: client/classes/network.js | Source: client/classes/network.js</title>
+    <title>Source: server/GameObjects/PhysicsObject.js | Source: server/GameObjects/PhysicsObject.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -26,7 +26,7 @@
         
     </div>
     <div class="title">
-        <h1><a href="index.html" class="link">Source: client/classes/network.js</a></h1>
+        <h1><a href="index.html" class="link">Source: server/GameObjects/PhysicsObject.js</a></h1>
         
     </div>
     <div class="search-container" id="search-container">
@@ -46,82 +46,46 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const Cookies = require('js-cookie');
-
+            <pre class="prettyprint source linenums"><code>const GameObject = require('./GameObject');
 /**
- * Provides utilites for communicating the authority server.
- * @property {String} id - Player ID
- * @property {Soket.io} io - A Socket.io client instance
- * */
-class Network {
-  /** Create a instance of Network class. */
-  constructor() {
-    this.io = require('socket.io-client')();
-    this.id = null;
-    this.checkId(Cookies.get('id'));
-  }
-
-  /**
-  * Sets new ID to a player.
-  * @param {String} id
-  */
-  setId(id) {
-    this.id = id;
-    Cookies.set('id', id);
-  }
-
-  /**
-   * Sending the ID from client to server for verifying.
-   * @param {String} id
-   */
-  async checkId(id) {
-    const _ = this;
-    console.log('id is: '+id);
-    if (typeof(id) !== 'string') this.setId(await this.queryId());
-    else {
-      this.io.once('checkIdReply', verifyId);
-      this.io.emit('checkId', id);
-    }
-
-    /**
-     * @private
-     * @function
-     * @param {Boolean} state
-     */
-    function verifyId(state) {
-      if (state) _.setId(id);
-    }
-  }
-
-  /**
-   * Sending the request for a new ID to a server.
-   * @return {Promise}
-   */
-  queryId() {
-    const _ = this;
-    console.log('querying id');
-
-    return new Promise(function(resolve, reject) {
-      _.io.once('getNewIdReply', function(id) {
-        _.checkId(id);
-      });
-
-      _.io.emit('getNewId');
-    });
-  }
-}
-
-/**
- * @return {Network} instance of Network
+ * Class representing server-side physics bodies.
+ * @memberof GameObjects
+ * @extends GameObject
+ * @property {PhysicsObjectConfig} config Configuration of the physics object
  */
-function getInstance() {
-  if (instance == null) instance = new Network();
-  return instance;
+class PhysicsObject extends GameObject {
+  /**
+   * @param {Number} x The X coordinate of the object
+   * @param {Number} y The Y coordinate of the object
+   * @param {PhysicsObjectConfig} config Configuration of physics body
+   */
+  constructor(x, y, config) {
+    super(x, y);
+    this.assignConfig(config);
+  }
+
+  /**
+   * Assign new physics config to physics object.
+   * @param {PhysicsObjectConfig} config
+   */
+  assignConfig(config) {
+    const defConfig = {
+      mass: 1,
+      maxSpeed: 100,
+      acceleration: 1,
+      speed: {
+        x: 0,
+        y: 0,
+      },
+      // shape: new Rect(1, 1),
+    };
+
+    // checks here...
+    this.config = Object.assign(defConfig, config);
+  }
 }
 
-let instance = null;
-
-module.exports = getInstance();
+module.exports = PhysicsObject;
 </code></pre>
         </article>
     </section>
