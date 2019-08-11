@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Class: Player | Class: Player</title>
+    <title>Class: Dot | Class: Dot</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -24,7 +24,7 @@
         
     </div>
     <div class="title">
-        <h1><a href="index.html" class="link">Class: Player</a></h1>
+        <h1><a href="index.html" class="link">Class: Dot</a></h1>
         
     </div>
     <div class="search-container" id="search-container">
@@ -47,9 +47,9 @@
 <header>
     
         <h2><span class="attribs"><span class="type-signature"></span></span>
-            <span class="ancestors"><a href="GameObjects.html">GameObjects</a>~</span>Player<span class="signature">(x<span class="signature-attributes">opt</span>, y<span class="signature-attributes">opt</span>, id, socket, name<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
+            <span class="ancestors"><a href="Geom.html">Geom</a>~</span>Dot<span class="signature">(x, y)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description"><p>Class representing player on the server side.</p></div>
+            <div class="class-description"><p>Class representing a geometric dot.</p></div>
         
     
 </header>
@@ -62,14 +62,14 @@
 
 <dt>
     
-        <h4 class="name" id="Player">
+        <h4 class="name" id="Dot">
             
-                new <span class="type-signature"></span>Player<span class="signature">(x<span class="signature-attributes">opt</span>, y<span class="signature-attributes">opt</span>, id, socket, name<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span>
+                new <span class="type-signature"></span>Dot<span class="signature">(x, y)</span><span class="type-signature"></span>
                 
             
             <div class="container-source members">
-                <code><a href="lib_GameObjects_Player.js.html">lib/GameObjects/Player.js</a></code>,
-                <code><a href="lib_GameObjects_Player.js.html#line20">line 20</a></code>
+                <code><a href="lib_Geom_Dot.js.html">lib/Geom/Dot.js</a></code>,
+                <code><a href="lib_Geom_Dot.js.html#line13">line 13</a></code>
             </div>
             
         </h4>
@@ -81,7 +81,7 @@
 
     
     <div class="description">
-        <p>Creates an instance of the Player.</p>
+        <p>Create an instance of the dot.</p>
     </div>
     
 
@@ -105,11 +105,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -134,26 +130,10 @@
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
-                <td class="default">
-                
-                    1
-                
-                </td>
-            
 
-            <td class="description last"><p>The X coordinate of Player</p></td>
+            <td class="description last"><p>X position</p></td>
         </tr>
 
     
@@ -173,133 +153,10 @@
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
-                <td class="default">
-                
-                    0
-                
-                </td>
-            
 
-            <td class="description last"><p>The Y coordinate of Player</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"><p>Player's ID</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>socket</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Socket</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"><p>The current <code>socket</code> which Player uses</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"><p>Player's name</p></td>
+            <td class="description last"><p>Y position</p></td>
         </tr>
 
     
@@ -322,6 +179,81 @@
     
 
     
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>X porition</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Y position</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
 
 
 <dl class="details">
@@ -367,17 +299,6 @@
     
 
     
-        <h3 class="subsection-title">Extends</h3>
-
-        
-
-
-    <ul>
-        <li>GameObject</li>
-    </ul>
-
-
-    
 
     
 
@@ -415,7 +336,7 @@
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = 'GameObjects.Player_sub'.replace(/"/g, '_');
+        var id = 'Geom.Dot_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 

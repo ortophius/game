@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Class: Player | Class: Player</title>
+    <title>Namespace: Physics | Namespace: Physics</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -24,7 +24,7 @@
         
     </div>
     <div class="title">
-        <h1><a href="index.html" class="link">Class: Player</a></h1>
+        <h1><a href="index.html" class="link">Namespace: Physics</a></h1>
         
     </div>
     <div class="search-container" id="search-container">
@@ -46,10 +46,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>
-            <span class="ancestors"><a href="GameObjects.html">GameObjects</a>~</span>Player<span class="signature">(x<span class="signature-attributes">opt</span>, y<span class="signature-attributes">opt</span>, id, socket, name<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
-        
-            <div class="class-description"><p>Class representing player on the server side.</p></div>
+        <h2>Physics</h2>
         
     
 </header>
@@ -59,17 +56,202 @@
         <div class="container-overview">
         
             
+                <div class="description"><p>Namespace contains physics methods, constants, and formulas.</p></div>
+            
+
+            
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+
+<dt>
+<h4 class="name" id=".FRICTION">
+    <span class="type-signature"><span class="icon green">static</span> </span>FRICTION<span class="type-signature"></span>
+    
+    <div class="container-source members">
+        <code><a href="lib_Physics_index.js.html">lib/Physics/index.js</a></code>,
+        <code><a href="lib_Physics_index.js.html#line9">line 9</a></code>
+    </div>
+    
+</h4>
+
+
+</dt>
+<dd>
+    
+
+    <!--
+    
+    -->
+
+    
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>FRICTION</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The friction constant.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+                
 
 <dt>
     
-        <h4 class="name" id="Player">
+        <h4 class="name" id=".update">
             
-                new <span class="type-signature"></span>Player<span class="signature">(x<span class="signature-attributes">opt</span>, y<span class="signature-attributes">opt</span>, id, socket, name<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span>
+                <span class="type-signature"><span class="icon green">static</span> </span>update<span class="signature">(obj, delta)</span><span class="type-signature"></span>
                 
             
             <div class="container-source members">
-                <code><a href="lib_GameObjects_Player.js.html">lib/GameObjects/Player.js</a></code>,
-                <code><a href="lib_GameObjects_Player.js.html#line20">line 20</a></code>
+                <code><a href="lib_Physics_index.js.html">lib/Physics/index.js</a></code>,
+                <code><a href="lib_Physics_index.js.html#line16">line 16</a></code>
             </div>
             
         </h4>
@@ -81,7 +263,8 @@
 
     
     <div class="description">
-        <p>Creates an instance of the Player.</p>
+        <p>Updates the object position relying on its current controls
+and config.</p>
     </div>
     
 
@@ -105,11 +288,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -121,7 +300,30 @@
 
         <tr>
             
-                <td class="name"><code>x</code></td>
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">PhysicsObject</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p><code>PhysicsObject</code> instance</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>delta</code></td>
             
 
             <td class="type">
@@ -134,172 +336,10 @@
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
-                <td class="default">
-                
-                    1
-                
-                </td>
-            
 
-            <td class="description last"><p>The X coordinate of Player</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>y</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    0
-                
-                </td>
-            
-
-            <td class="description last"><p>The Y coordinate of Player</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"><p>Player's ID</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>socket</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Socket</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"><p>The current <code>socket</code> which Player uses</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"><p>Player's name</p></td>
+            <td class="description last"><p>Time delta</p></td>
         </tr>
 
     
@@ -362,35 +402,7 @@
 
 </dd>
 
-        
-        </div>
-    
-
-    
-        <h3 class="subsection-title">Extends</h3>
-
-        
-
-
-    <ul>
-        <li>GameObject</li>
-    </ul>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+            </dl>
     
 
     
@@ -415,7 +427,7 @@
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = 'GameObjects.Player_sub'.replace(/"/g, '_');
+        var id = 'Physics_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 

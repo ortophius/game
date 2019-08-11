@@ -18,3 +18,9 @@
   * @property {number} x Horizontal speed
   * @property {number} y Vertical speed
   */
+
+/**
+  * @typedef {(number)} ControlsObject
+  * @property {number} [vx = 0] Horizontal momentum
+  * @property {number} [vy = 0] Vertical momentum
+  */
