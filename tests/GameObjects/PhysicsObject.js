@@ -12,24 +12,18 @@ describe('PhysicsBody', function() {
   });
 
   it('#update', function() {
-    const p = new PhysicsObject(0, 0, {maxSpeed: 200, accForce: 10});
+    const p = new PhysicsObject(0, 0, {maxSpeed: 200, accForce: 50});
 
     p.acceleration.x = 1;
-    p.update(1);
-    p.speed.x.should.equal(10);
-
-    p.acceleration.y = 1;
-    p.update(1);
-    p.speed.y.should.equal(10);
-
-    p.acceleration = new Vector(-1, -1);
-    p.update(1);
-    p.speed.should.deep.equal({x: 10, y: 0});
-
-    p.speed = new Vector();
-    p.config.accForce = 400;
-    p.acceleration = new Vector(1, 1);
     p.update(2);
-    p.speed.length.should.be.within(199.99, 200.01);
+    p.speed.x.should.equal(70);
+    p.acceleration.x = -1;
+    p.update(1);
+
+    p.acceleration.x = 0;
+    p.acceleration.y = 1;
+    p.update(10);
+    p.speed.x.should.equal(0);
+    p.speed.y.should.equal(200);
   });
 });
