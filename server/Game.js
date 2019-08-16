@@ -1,6 +1,14 @@
 const ComStack = require('../lib/CommandStack');
 const Ticker = require('../lib/Ticker');
 
+/**
+ * Main server-side namespace including all
+ * common objects and references.
+ * @namespace
+ * @property {CommandStack} comStack `CommandStack` instance.
+ * @property {Array} players Array of current players
+ * @property {Ticker} ticker `Ticker` instance.
+ */
 const Game = {
   comStack: new ComStack(),
   players: [],

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Class: Dot | Class: Dot</title>
+    <title>Class: Ticker | Class: Ticker</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -24,7 +24,7 @@
         
     </div>
     <div class="title">
-        <h1><a href="index.html" class="link">Class: Dot</a></h1>
+        <h1><a href="index.html" class="link">Class: Ticker</a></h1>
         
     </div>
     <div class="search-container" id="search-container">
@@ -46,10 +46,10 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>
-            <span class="ancestors"><a href="Geom.html">Geom</a>~</span>Dot<span class="signature">(x, y)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>Ticker<span class="signature">(fps)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description"><p>Class representing a geometric dot.</p></div>
+            <div class="class-description"><p>Server side Time ticker.
+Used to update things in time.</p></div>
         
     
 </header>
@@ -62,14 +62,14 @@
 
 <dt>
     
-        <h4 class="name" id="Dot">
+        <h4 class="name" id="Ticker">
             
-                new <span class="type-signature"></span>Dot<span class="signature">(x, y)</span><span class="type-signature"></span>
+                new <span class="type-signature"></span>Ticker<span class="signature">(fps)</span><span class="type-signature"></span>
                 
             
             <div class="container-source members">
-                <code><a href="lib_Geom_Dot.js.html">lib/Geom/Dot.js</a></code>,
-                <code><a href="lib_Geom_Dot.js.html#line13">line 13</a></code>
+                <code><a href="lib_Ticker.js.html">lib/Ticker.js</a></code>,
+                <code><a href="lib_Ticker.js.html#line16">line 16</a></code>
             </div>
             
         </h4>
@@ -81,7 +81,8 @@
 
     
     <div class="description">
-        <p>Create an instance of the dot.</p>
+        <p>Create an instance of Ticker.
+Should not be called directly.</p>
     </div>
     
 
@@ -117,13 +118,13 @@
 
         <tr>
             
-                <td class="name"><code>x</code></td>
+                <td class="name"><code>fps</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type"><a href="Ticker.html">Ticker</a></span>
 
 
             
@@ -133,30 +134,7 @@
 
             
 
-            <td class="description last"><p>X position</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>y</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Y position</p></td>
+            <td class="description last"><p>Desired FPS.</p></td>
         </tr>
 
     
@@ -207,7 +185,7 @@
 
         <tr>
             
-                <td class="name"><code>x</code></td>
+                <td class="name"><code>fps</code></td>
             
 
             <td class="type">
@@ -223,30 +201,7 @@
 
             
 
-            <td class="description last"><p>X porition</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>y</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Y position</p></td>
+            <td class="description last"><p>The current game FPS.</p></td>
         </tr>
 
     
@@ -299,6 +254,15 @@
     
 
     
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li>EventEmitter</li>
+    </ul>
+
 
     
 
@@ -312,6 +276,282 @@
 
     
 
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+                
+
+<dt>
+    
+        <h4 class="name" id="pause">
+            
+                <span class="type-signature"></span>pause<span class="signature">()</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="lib_Ticker.js.html">lib/Ticker.js</a></code>,
+                <code><a href="lib_Ticker.js.html#line43">line 43</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Pause the updating cycle</p>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id="resume">
+            
+                <span class="type-signature"></span>resume<span class="signature">()</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="lib_Ticker.js.html">lib/Ticker.js</a></code>,
+                <code><a href="lib_Ticker.js.html#line36">line 36</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Resume the updating cycle</p>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id="update">
+            
+                <span class="type-signature"></span>update<span class="signature">()</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="lib_Ticker.js.html">lib/Ticker.js</a></code>,
+                <code><a href="lib_Ticker.js.html#line29">line 29</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Emit an <code>update</code> events on all
+subscribers.
+It passes the <code>delta</code> time elapsed
+from the last update.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            </dl>
     
 
     
@@ -336,7 +576,7 @@
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = 'Geom.Dot_sub'.replace(/"/g, '_');
+        var id = 'Ticker_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 

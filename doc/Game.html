@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Class: Dot | Class: Dot</title>
+    <title>Namespace: Game | Namespace: Game</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -24,7 +24,7 @@
         
     </div>
     <div class="title">
-        <h1><a href="index.html" class="link">Class: Dot</a></h1>
+        <h1><a href="index.html" class="link">Namespace: Game</a></h1>
         
     </div>
     <div class="search-container" id="search-container">
@@ -46,10 +46,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>
-            <span class="ancestors"><a href="Geom.html">Geom</a>~</span>Dot<span class="signature">(x, y)</span><span class="type-signature"></span></h2>
-        
-            <div class="class-description"><p>Class representing a geometric dot.</p></div>
+        <h2>Game</h2>
         
     
 </header>
@@ -59,126 +56,11 @@
         <div class="container-overview">
         
             
-
-<dt>
-    
-        <h4 class="name" id="Dot">
-            
-                new <span class="type-signature"></span>Dot<span class="signature">(x, y)</span><span class="type-signature"></span>
-                
-            
-            <div class="container-source members">
-                <code><a href="lib_Geom_Dot.js.html">lib/Geom/Dot.js</a></code>,
-                <code><a href="lib_Geom_Dot.js.html#line13">line 13</a></code>
-            </div>
-            
-        </h4>
-
-        
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Create an instance of the dot.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-    <div class="container-params">
-        <h5>Parameters:</h5>
-        
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
+                <div class="description"><p>Main server-side namespace including all
+common objects and references.</p></div>
             
 
             
-
-            <td class="description last"><p>X position</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>y</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Y position</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
 
 
     <h5 class="subsection-title">Properties:</h5>
@@ -207,13 +89,13 @@
 
         <tr>
             
-                <td class="name"><code>x</code></td>
+                <td class="name"><code>comStack</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type"><a href="CommandStack.html">CommandStack</a></span>
 
 
             
@@ -223,20 +105,20 @@
 
             
 
-            <td class="description last"><p>X porition</p></td>
+            <td class="description last"><p><code>CommandStack</code> instance.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>y</code></td>
+                <td class="name"><code>players</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">Array</span>
 
 
             
@@ -246,7 +128,30 @@
 
             
 
-            <td class="description last"><p>Y position</p></td>
+            <td class="description last"><p>Array of current players</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ticker</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Ticker.html">Ticker</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p><code>Ticker</code> instance.</p></td>
         </tr>
 
     
@@ -290,10 +195,7 @@
 </dl>
 
 
-    
-
-</dd>
-
+            
         
         </div>
     
@@ -336,7 +238,7 @@
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = 'Geom.Dot_sub'.replace(/"/g, '_');
+        var id = 'Game_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 

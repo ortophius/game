@@ -1,8 +1,10 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Class: Dot | Class: Dot</title>
+    <title>Source: lib/Ticker.js | Source: lib/Ticker.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -24,7 +26,7 @@
         
     </div>
     <div class="title">
-        <h1><a href="index.html" class="link">Class: Dot</a></h1>
+        <h1><a href="index.html" class="link">Source: lib/Ticker.js</a></h1>
         
     </div>
     <div class="search-container" id="search-container">
@@ -41,285 +43,71 @@
 
 
 
-
-<section>
-
-<header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>
-            <span class="ancestors"><a href="Geom.html">Geom</a>~</span>Dot<span class="signature">(x, y)</span><span class="type-signature"></span></h2>
-        
-            <div class="class-description"><p>Class representing a geometric dot.</p></div>
-        
-    
-</header>
-
-<article>
-    
-        <div class="container-overview">
-        
-            
-
-<dt>
-    
-        <h4 class="name" id="Dot">
-            
-                new <span class="type-signature"></span>Dot<span class="signature">(x, y)</span><span class="type-signature"></span>
-                
-            
-            <div class="container-source members">
-                <code><a href="lib_Geom_Dot.js.html">lib/Geom/Dot.js</a></code>,
-                <code><a href="lib_Geom_Dot.js.html#line13">line 13</a></code>
-            </div>
-            
-        </h4>
-
-        
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Create an instance of the dot.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-    <div class="container-params">
-        <h5>Parameters:</h5>
-        
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>X position</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>y</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Y position</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>X porition</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>y</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Y position</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-</dd>
-
-        
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const {performance} = require('perf_hooks');
+const EventEmitter = require('events');
+
+/**
+ * Server side Time ticker.
+ * Used to update things in time.
+ * @extends {EventEmitter}
+ * @property {number} fps The current game FPS.
+ */
+class Ticker extends EventEmitter {
+  /**
+   * Create an instance of Ticker.
+   * Should not be called directly.
+   * @param {Ticker} fps Desired FPS.
+   */
+  constructor(fps) {
+    super();
+    this.desiredFPS = fps || 40;
+    this.lastTime = performance.now();
+    this.resume();
+  }
+
+  /**
+   * Emit an `update` events on all
+   * subscribers.
+   * It passes the `delta` time elapsed
+   * from the last update.
+   * */
+  update() {
+    const delta = (performance.now() - this.lastTime) / 1000;
+    this.lastTime = performance.now();
+    this.emit('update', delta);
+  }
+
+  /** Resume the updating cycle */
+  resume() {
+    this.lastTime = performance.now();
+    const _ = this;
+    setInterval(_.update.bind(_), 1000/this.desiredFPS);
+  }
+
+  /** Pause the updating cycle */
+  pause() {
+    const _ = this;
+    clearInterval(_.update.bind(_));
+  }
+
+  /**
+   * @ignore
+   * @param {number} value
+   */
+  set fps(value) {
+    this.pause();
+    this.desiredFPS = value;
+    this.resume();
+  }
+}
+
+module.exports = Ticker;
+</code></pre>
+        </article>
+    </section>
 
 
 
@@ -336,7 +124,7 @@
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = 'Geom.Dot_sub'.replace(/"/g, '_');
+        var id = '_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 

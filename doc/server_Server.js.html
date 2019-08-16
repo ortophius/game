@@ -1,8 +1,10 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Class: Dot | Class: Dot</title>
+    <title>Source: server/Server.js | Source: server/Server.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -24,7 +26,7 @@
         
     </div>
     <div class="title">
-        <h1><a href="index.html" class="link">Class: Dot</a></h1>
+        <h1><a href="index.html" class="link">Source: server/Server.js</a></h1>
         
     </div>
     <div class="search-container" id="search-container">
@@ -41,285 +43,105 @@
 
 
 
-
-<section>
-
-<header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>
-            <span class="ancestors"><a href="Geom.html">Geom</a>~</span>Dot<span class="signature">(x, y)</span><span class="type-signature"></span></h2>
-        
-            <div class="class-description"><p>Class representing a geometric dot.</p></div>
-        
-    
-</header>
-
-<article>
-    
-        <div class="container-overview">
-        
-            
-
-<dt>
-    
-        <h4 class="name" id="Dot">
-            
-                new <span class="type-signature"></span>Dot<span class="signature">(x, y)</span><span class="type-signature"></span>
-                
-            
-            <div class="container-source members">
-                <code><a href="lib_Geom_Dot.js.html">lib/Geom/Dot.js</a></code>,
-                <code><a href="lib_Geom_Dot.js.html#line13">line 13</a></code>
-            </div>
-            
-        </h4>
-
-        
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Create an instance of the dot.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-    <div class="container-params">
-        <h5>Parameters:</h5>
-        
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>X position</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>y</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Y position</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>X porition</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>y</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Y position</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-</dd>
-
-        
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const express = require('express');
+const app = express();
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
+const Player = require('./Player');
+const Game = require('./Game');
+
+/**
+ * Class representing authority erver logic
+*/
+class Server {
+  /**
+   * Create an instance of the `Server`.
+   * Should not be called directy.
+   * @param {number} port TCP post to listen
+   */
+  constructor(port) {
+    this.io = io;
+    this.port = port;
+    this.registerListeners();
+    this.setUpExpress();
+    this.startUpdating();
+  }
+
+  /**
+   * Enable broadcasting information
+   * to all clients.
+   */
+  startUpdating() {
+    const _ = this;
+    setInterval(_.sendUpdate.bind(_), 1000/10);
+  }
+
+  /**
+   * Set up Express settings.
+   * @private
+   * @param {number} port Network port to listen
+   */
+  setUpExpress() {
+    const port = this.port;
+    app.use(express.static('dist'));
+
+    app.get('/', function(req, res) {
+      res.sendFile(__dirname + '/dist/index.html');
+    });
+
+    http.listen(port, function() {
+      console.log(`listening on *: ${port}`);
+    });
+  }
+
+  /**
+   * Register event listeners for `Socket.io`
+   */
+  registerListeners() {
+    const _ = this;
+    _.io.on('connection', _.newPlayer.bind(_));
+  }
+
+  /**
+   * Sends updated information about all
+   * game objects to clients. */
+  sendUpdate() {
+    if (Game.comStack.length == 0) return;
+    const stack = Game.comStack.flush();
+    this.io.emit('commands', stack);
+  }
+
+  /**
+   * Add a new player to game.
+   * @param {SocketIO.Socket} socket Connection socket
+   */
+  newPlayer(socket) {
+    Game.players.push(
+        new Player(
+            socket,
+            Math.random(),
+            'Bob'));
+  }
+}
+
+let instance = null;
+
+/**
+ * @ignore
+ * @return {Server}
+ */
+function getInstance() {
+  if (instance === null) instance = new Server(3000);
+  return instance;
+}
+
+module.exports = getInstance();
+</code></pre>
+        </article>
+    </section>
 
 
 
@@ -336,7 +158,7 @@
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = 'Geom.Dot_sub'.replace(/"/g, '_');
+        var id = '_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 
