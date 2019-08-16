@@ -1,6 +1,5 @@
-const should = require('chai').should();
+require('chai').should();
 const PhysicsObject = require('../../lib/GameObjects/PhysicsObject');
-const Vector = require('../../lib/Geom/Vector');
 
 describe('PhysicsBody', function() {
   it('Should conain proper config', function() {

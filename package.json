@@ -21,6 +21,7 @@
     "jsdoc": "^3.6.3",
     "mocha": "^6.2.0",
     "pixi.js": "^5.1.0",
+    "sinon": "^7.4.1",
     "style-loader": "^0.23.1",
     "tui-jsdoc-template": "^1.2.2",
     "webpack": "^4.38.0",

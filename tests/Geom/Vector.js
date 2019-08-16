@@ -1,4 +1,4 @@
-const should = require('chai').should();
+require('chai').should();
 const Vector = require('../../lib/Geom/Vector');
 
 describe('Vector', function() {
