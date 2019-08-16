@@ -1,5 +1,6 @@
 require('chai').should();
 const PhysicsObject = require('../../lib/GameObjects/PhysicsObject');
+const Ticker = require('../../lib/Ticker');
 
 describe('PhysicsBody', function() {
   it('Should conain proper config', function() {
@@ -11,11 +12,14 @@ describe('PhysicsBody', function() {
   });
 
   it('#update', function() {
-    const p = new PhysicsObject(0, 0, {maxSpeed: 200, accForce: 50});
+    const p = new PhysicsObject(
+        0, 0,
+        new Ticker(70),
+        {maxSpeed: 200, accForce: 50});
 
     p.acceleration.x = 1;
     p.update(2);
-    p.speed.x.should.equal(70);
+    p.speed.x.should.equal(60);
     p.acceleration.x = -1;
     p.update(1);
 
