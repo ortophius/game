@@ -58,12 +58,17 @@ class Server {
   }
 
   /**
-   * Sends updated information about all
-   * game objects to clients. */
+   * Send updated positions of all objects
+   * to clients.
+   */
   sendUpdate() {
-    if (Game.comStack.length == 0) return;
-    const stack = Game.comStack.flush();
-    this.io.emit('commands', stack);
+    if (Game.players.length == 0) return;
+
+    const updateObject = Game.players.map(function(player) {
+      return {id: player.socket.id, x: player.x, y: player.y};
+    });
+
+    io.emit('update', updateObject);
   }
 
   /**

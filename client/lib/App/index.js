@@ -3,9 +3,8 @@
  * @namespace
  */
 
-const App = {
-  pApp: {
-  },
+const Client = {
+  App: {},
 };
 
-module.exports = App;
+module.exports = Client;

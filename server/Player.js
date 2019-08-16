@@ -68,9 +68,11 @@ class Player extends PhysicsObject {
     this.acceleration.x = Math.sign(controls.x);
     this.acceleration.y = Math.sign(controls.y);
 
-    Game.comStack.add({
+    const command = {
       id: this.socket.id,
-      acceleration: this.acceleration});
+      acceleration: this.acceleration};
+
+    this.socket.broadcast.emit('command', command);
   }
 
   /**
@@ -89,6 +91,7 @@ class Player extends PhysicsObject {
         Game.players.indexOf(this),
         1
     );
+    this.cleanup();
     // console.log(`${this.id} disconnected.`);
   }
 }

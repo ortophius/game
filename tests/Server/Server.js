@@ -48,19 +48,57 @@ describe('Server', function() {
     }
   });
 
-  it('Sending updates to all players correctly', function(done) {
+  it('Notify about player connected', function() {
+    // const cb = sinon.spy();
+    const cb = function(obj) {
+      console.log(obj);
+    };
+    const client1 = io.connect(url, options);
+    client1.on('connected', cb);
+
+    const client2 = io.connect(url, options);
+    client2.on('connected', cb);
+
+    client2.on('disconnect', function() {
+      done();
+    });
+
+    client1.disconnect();
+    client2.disconnect();
+  });
+
+  it('Sending commands to all players correctly', function(done) {
     const client1 = io.connect(url, options);
     const client2 = io.connect(url, options);
     const testControls = {x: 1, y: 0};
 
-    client2.on('commands', function(controls) {
-      const acc = controls.stack[0].command.acceleration;
-      const id = controls.stack[0].command.id;
+    client2.on('command', function(controls) {
+      const acc = controls.acceleration;
+      const id = controls.id;
       acc.should.deep.equal(testControls);
       id.should.equal(client1.id);
+      client1.disconnect();
+      client2.disconnect();
       done();
     });
 
     client1.emit('controls', testControls);
+  });
+
+  it('Sending updates correctly', function(done) {
+    Game.players = [];
+    Game.players.length.should.equal(0);
+
+    const client1 = io.connect(url, options);
+    const client2 = io.connect(url, options);
+    const testControls = {x: 1, y: 0};
+
+    client1.emit('controls', testControls);
+    client2.on('update', function(update) {
+      update[0].x.should.be.above(0);
+      client1.disconnect();
+      client2.disconnect();
+      done();
+    });
   });
 });
