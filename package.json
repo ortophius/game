@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --exit tests/*",
-    "watch": "rm -rf ./dist; webpack --watch",
+    "watch": "rm -rf ./dist; webpack-dev-server & node ./server/Server",
     "doc": "rm -rf ./doc; jsdoc -c ./jsdoc.json"
   },
   "author": "",
@@ -25,7 +25,8 @@
     "style-loader": "^0.23.1",
     "tui-jsdoc-template": "^1.2.2",
     "webpack": "^4.38.0",
-    "webpack-cli": "^3.3.6"
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
     "express": "^4.17.1",
