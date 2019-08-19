@@ -28,7 +28,7 @@ class Server {
    */
   startUpdating() {
     const _ = this;
-    setInterval(_.sendUpdate.bind(_), 1000/10);
+    setInterval(_.sendUpdate.bind(_), 1000);
   }
 
   /**
@@ -54,7 +54,36 @@ class Server {
    */
   registerListeners() {
     const _ = this;
-    _.io.on('connection', _.newPlayer.bind(_));
+    _.io.on('connection', _.registerSocketListners.bind(_));
+  }
+
+  /**
+   * Register event listeners for `Socket` instance.
+   * @param {SocketIO.Socket} socket `Socket` instance
+   */
+  registerSocketListners(socket) {
+    const _ = this;
+    socket.on('start', _.newPlayer.bind(_, socket));
+    socket.on('getPlayers', _.sendPlayers.bind(_, socket));
+    socket.on('p-ing', function() {
+      socket.emit('p-ong');
+    });
+  }
+
+  /**
+   * Send complete list of current players
+   * @param {SocketIO.Socket} socket `Socket` instance
+   */
+  sendPlayers(socket) {
+    const players = Game.players.map(function(p) {
+      return {
+        id: p.socket.id,
+        name: p.name,
+        x: p.x,
+        y: p.y,
+      };
+    });
+    socket.emit('getPlayersReply', players);
   }
 
   /**
@@ -76,11 +105,20 @@ class Server {
    * @param {SocketIO.Socket} socket Connection socket
    */
   newPlayer(socket) {
-    Game.players.push(
-        new Player(
-            socket,
-            Math.random(),
-            'Bob'));
+    const x = Math.floor(Math.random() * Game.worldConfig.width);
+    const y = Math.floor(Math.random() * Game.worldConfig.height);
+    const player = new Player(
+        socket,
+        Math.random(),
+        'Bob',
+        x,
+        y);
+
+    Game.players.push(player);
+    socket.emit('startReply', {
+      x: player.x,
+      y: player.y,
+    });
   }
 }
 

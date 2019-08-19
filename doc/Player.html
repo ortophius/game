@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Class: PhysicsObject | Class: PhysicsObject</title>
+    <title>Class: Player | Class: Player</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -24,7 +24,7 @@
         
     </div>
     <div class="title">
-        <h1><a href="index.html" class="link">Class: PhysicsObject</a></h1>
+        <h1><a href="index.html" class="link">Class: Player</a></h1>
         
     </div>
     <div class="search-container" id="search-container">
@@ -46,10 +46,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>
-            <span class="ancestors"><a href="GameObjects.html">GameObjects</a>~</span>PhysicsObject<span class="signature">(x, y, ticker, config)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>Player<span class="signature">(x, y)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description"><p>Class representing server-side physics bodies.</p></div>
+            <div class="class-description"><p>Player class.</p></div>
         
     
 </header>
@@ -62,14 +61,14 @@
 
 <dt>
     
-        <h4 class="name" id="PhysicsObject">
+        <h4 class="name" id="Player">
             
-                new <span class="type-signature"></span>PhysicsObject<span class="signature">(x, y, ticker, config)</span><span class="type-signature"></span>
+                new <span class="type-signature"></span>Player<span class="signature">(x, y)</span><span class="type-signature"></span>
                 
             
             <div class="container-source members">
-                <code><a href="lib_GameObjects_PhysicsObject.js.html">lib/GameObjects/PhysicsObject.js</a></code>,
-                <code><a href="lib_GameObjects_PhysicsObject.js.html#line17">line 17</a></code>
+                <code><a href="client_Player.js.html">client/Player.js</a></code>,
+                <code><a href="client_Player.js.html#line13">line 13</a></code>
             </div>
             
         </h4>
@@ -79,6 +78,10 @@
 </dt>
 <dd>
 
+    
+    <div class="description">
+        <p>Create new player</p>
+    </div>
     
 
     
@@ -119,7 +122,7 @@
             <td class="type">
             
                 
-<span class="param-type">Number</span>
+<span class="param-type">number</span>
 
 
             
@@ -129,7 +132,7 @@
 
             
 
-            <td class="description last"><p>The X coordinate of the object</p></td>
+            <td class="description last"><p>X position</p></td>
         </tr>
 
     
@@ -142,7 +145,7 @@
             <td class="type">
             
                 
-<span class="param-type">Number</span>
+<span class="param-type">number</span>
 
 
             
@@ -152,53 +155,7 @@
 
             
 
-            <td class="description last"><p>The Y coordinate of the object</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>ticker</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Ticker.html">Ticker</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The <code>Ticker</code> instance to bind</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>config</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#PhysicsObjectConfig">PhysicsObjectConfig</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Configuration of physics body</p></td>
+            <td class="description last"><p>Y position</p></td>
         </tr>
 
     
@@ -221,58 +178,6 @@
     
 
     
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>config</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#PhysicsObjectConfig">PhysicsObjectConfig</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Configuration of the physics object</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
 
 
 <dl class="details">
@@ -318,404 +223,19 @@
     
 
     
-        <h3 class="subsection-title">Extends</h3>
 
-        
-
-
-    <ul>
-        <li>GameObject</li>
-    </ul>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        <dl>
-                
-
-<dt>
-    
-        <h4 class="name" id="assignConfig">
-            
-                <span class="type-signature"></span>assignConfig<span class="signature">(config)</span><span class="type-signature"></span>
-                
-            
-            <div class="container-source members">
-                <code><a href="lib_GameObjects_PhysicsObject.js.html">lib/GameObjects/PhysicsObject.js</a></code>,
-                <code><a href="lib_GameObjects_PhysicsObject.js.html#line38">line 38</a></code>
-            </div>
-            
-        </h4>
-
-        
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Assign new physics config to physics object.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-    <div class="container-params">
-        <h5>Parameters:</h5>
-        
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>config</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#PhysicsObjectConfig">PhysicsObjectConfig</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-</dd>
-
-            
-                
-
-<dt>
-    
-        <h4 class="name" id="cleanup">
-            
-                <span class="type-signature"></span>cleanup<span class="signature">()</span><span class="type-signature"></span>
-                
-            
-            <div class="container-source members">
-                <code><a href="lib_GameObjects_PhysicsObject.js.html">lib/GameObjects/PhysicsObject.js</a></code>,
-                <code><a href="lib_GameObjects_PhysicsObject.js.html#line101">line 101</a></code>
-            </div>
-            
-        </h4>
-
-        
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Cleanup function.
-Should be called every time before
-releasing this object.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-</dd>
-
-            
-                
-
-<dt>
-    
-        <h4 class="name" id="update">
-            
-                <span class="type-signature"></span>update<span class="signature">(delta)</span><span class="type-signature"></span>
-                
-            
-            <div class="container-source members">
-                <code><a href="lib_GameObjects_PhysicsObject.js.html">lib/GameObjects/PhysicsObject.js</a></code>,
-                <code><a href="lib_GameObjects_PhysicsObject.js.html#line62">line 62</a></code>
-            </div>
-            
-        </h4>
-
-        
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Calculate physics parameters of the object and then
-set new position to it.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-    <div class="container-params">
-        <h5>Parameters:</h5>
-        
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>delta</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Time delta</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-
     
 
     
 
     
 
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
     
 
     
 
     
-
-    
-
-    
-</dl>
-
-
-    
-
-</dd>
 
-            </dl>
     
 
     
@@ -740,7 +260,7 @@ set new position to it.</p>
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = 'GameObjects.PhysicsObject_sub'.replace(/"/g, '_');
+        var id = 'Player_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 

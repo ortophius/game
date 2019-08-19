@@ -1,47 +1,51 @@
+const PIXI = require('pixi.js');
 const Game = require('./Game');
+const GUI = require('./Gui');
 /**
  * Class which provides game camera behaviour.
  */
-class Camera {
+class Camera extends PIXI.Container {
   /**
-   * Create an instance of `Camera`.
-   * @param {PIXI.DisplayObject} [object] Object to follow
+   * Create an instance
+   * @param {PIXI.Container} world A game world container
    */
-  constructor(object) {
-    console.log('creating camera');
-    if (object === undefined) return;
-    this.followedObject = object;
-    this.stage = object.parent;
-    this.anchor = {x: 0.5, y: 0.5};
-    Game.ticker.on('update', this.update.bind(this));
+  constructor(world) {
+    super();
+    this.GUI = new GUI();
+    this.world = world;
+    this.addChild(world);
+    this.followedObject = null;
   }
 
   /**
-   * Sets object to follow.
+   * Start following an object
    * @param {PIXI.DisplayObject} object Object to follow
    */
   follow(object) {
+    const _ = this;
     this.followedObject = object;
+    Game.ticker.off('update', _.updateCameraPosition.bind(_));
+    Game.ticker.on('update', _.updateCameraPosition.bind(_));
   }
 
   /**
-   * Update camera position relative
-   * to folowed object.
+   * Stop following any object
    */
-  update() {
-    if (this.followedObject === undefined) return;
-    this.moveTo(this.followedObject.x, this.followedObject.y);
+  stopFollow() {
+    const _ = this;
+    this.followedObject = null;
+    Game.ticker.off('update', _.updateCameraPosition.bind(_));
   }
 
   /**
-   * Move camera to position
-   * @param {*} x X position
-   * @param {*} y Y position
+   * Update camera position according following object
    */
-  moveTo(x, y) {
-    this.stage.x = window.innerWidth * this.anchor.x -x;
-    this.stage.y = window.innerHeight * this.anchor.y -y;
-    console.log(this.followedObject.x);
+  updateCameraPosition() {
+    const targetPivot = new PIXI.Point(
+        this.followedObject.x - Game.app.renderer.width / 2,
+        this.followedObject.y - Game.app.renderer.height / 2,
+    );
+    this.world.pivot.copyFrom(targetPivot);
   }
 }
 

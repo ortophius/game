@@ -1,5 +1,4 @@
 const EventEmitter = require('events');
-
 /**
  * Server side Time ticker.
  * Used to update things in time.
@@ -15,8 +14,6 @@ class Ticker extends EventEmitter {
   constructor(fps) {
     super();
     this.setMaxListeners(0);
-    this.desiredFPS = fps || 40;
-    this.lastTime = performance.now();
     this.resume();
   }
 

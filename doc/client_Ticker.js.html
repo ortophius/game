@@ -1,8 +1,10 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Class: CommandStack | Class: CommandStack</title>
+    <title>Source: client/Ticker.js | Source: client/Ticker.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -24,7 +26,7 @@
         
     </div>
     <div class="title">
-        <h1><a href="index.html" class="link">Class: CommandStack</a></h1>
+        <h1><a href="index.html" class="link">Source: client/Ticker.js</a></h1>
         
     </div>
     <div class="search-container" id="search-container">
@@ -41,472 +43,71 @@
 
 
 
-
-<section>
-
-<header>
-    
-        <h2><span class="attribs"><span class="type-signature"></span></span>CommandStack<span class="signature">(comObject<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
-        
-            <div class="class-description"><p>Class represents players commands stack
-and implements methods to work with them.</p></div>
-        
-    
-</header>
-
-<article>
-    
-        <div class="container-overview">
-        
-            
-
-<dt>
-    
-        <h4 class="name" id="CommandStack">
-            
-                new <span class="type-signature"></span>CommandStack<span class="signature">(comObject<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span>
-                
-            
-            <div class="container-source members">
-                <code><a href="lib_CommandStack.js.html">lib/CommandStack.js</a></code>,
-                <code><a href="lib_CommandStack.js.html#line11">line 11</a></code>
-            </div>
-            
-        </h4>
-
-        
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Create an instance of the CommandStack.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-    <div class="container-params">
-        <h5>Parameters:</h5>
-        
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>comObject</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#CommandObject">CommandObject</a></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>the command object</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-</dd>
-
-        
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        <dl>
-                
-
-<dt>
-    
-        <h4 class="name" id="add">
-            
-                <span class="type-signature"></span>add<span class="signature">(command)</span><span class="type-signature"> &rarr; {<a href="global.html#CommandObject">CommandObject</a>}</span>
-                
-            
-            <div class="container-source members">
-                <code><a href="lib_CommandStack.js.html">lib/CommandStack.js</a></code>,
-                <code><a href="lib_CommandStack.js.html#line29">line 29</a></code>
-            </div>
-            
-        </h4>
-
-        
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Adds a command to stack</p>
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-    <div class="container-params">
-        <h5>Parameters:</h5>
-        
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>command</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>An object represents a command.
-Object signature does not really matter, it would be saved anyway.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    </div>
-    
-
-    
-
     
-
-    
-
-    
-
-    
-
-    
-    <div class="container-returns">
-        <h5>Returns:</h5>
-        
-                
-
-
-
-<span class="param-type"><a href="global.html#CommandObject">CommandObject</a></span>
-
-
-
-
-
-
-
-
-            
-    </div>
-    
-
-    
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-</dd>
-
-            
-                
-
-<dt>
-    
-        <h4 class="name" id="flush">
-            
-                <span class="type-signature"></span>flush<span class="signature">()</span><span class="type-signature"> &rarr; {object}</span>
-                
-            
-            <div class="container-source members">
-                <code><a href="lib_CommandStack.js.html">lib/CommandStack.js</a></code>,
-                <code><a href="lib_CommandStack.js.html#line45">line 45</a></code>
-            </div>
-            
-        </h4>
-
-        
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Fushes the stack</p>
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <div class="container-returns">
-        <h5>Returns:</h5>
-        
-                
-
-
-
-<span class="param-type">object</span>
-
-
-
-
-
-- <p>command stack</p>
-
-
-
-
-            
-    </div>
-    
-
-    
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-</dd>
-
-            </dl>
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const EventEmitter = require('events');
+
+/**
+ * Server side Time ticker.
+ * Used to update things in time.
+ * @extends {EventEmitter}
+ * @property {number} fps The current game FPS.
+ */
+class Ticker extends EventEmitter {
+  /**
+   * Create an instance of Ticker.
+   * Should not be called directly.
+   * @param {Ticker} fps Desired FPS.
+   */
+  constructor(fps) {
+    super();
+    this.setMaxListeners(0);
+    this.desiredFPS = fps || 40;
+    this.lastTime = performance.now();
+    this.resume();
+  }
+
+  /**
+   * Emit an `update` events on all
+   * subscribers.
+   * It passes the `delta` time elapsed
+   * from the last update.
+   * */
+  update() {
+    const delta = (performance.now() - this.lastTime) / 1000;
+    this.lastTime = performance.now();
+    this.emit('update', delta);
+  }
+
+  /** Resume the updating cycle */
+  resume() {
+    this.lastTime = performance.now();
+    const _ = this;
+    setInterval(_.update.bind(_), 1000/this.desiredFPS);
+  }
+
+  /** Pause the updating cycle */
+  pause() {
+    const _ = this;
+    clearInterval(_.update.bind(_));
+  }
+
+  /**
+   * @ignore
+   * @param {number} value
+   */
+  set fps(value) {
+    this.pause();
+    this.desiredFPS = value;
+    this.resume();
+  }
+}
+
+module.exports = Ticker;
+</code></pre>
+        </article>
+    </section>
 
 
 
@@ -523,7 +124,7 @@ Object signature does not really matter, it would be saved anyway.</p></td>
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = 'CommandStack_sub'.replace(/"/g, '_');
+        var id = '_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 

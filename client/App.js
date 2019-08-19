@@ -7,6 +7,7 @@ module.exports = function() {
     appInstance = new PIXI.Application({
       width: window.innerWidth,
       height: window.innerHeight,
+      antialias: false,
     });
   }
   return appInstance;

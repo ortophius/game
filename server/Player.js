@@ -18,7 +18,7 @@ class Player extends PhysicsObject {
    * @param {number} [x = 1] The X coordinate of Player
    * @param {number} [y = 0] The Y coordinate of Player
    */
-  constructor(socket, id, name, x, y, ) {
+  constructor(socket, id, name, x, y) {
     if (id == undefined) {
       throw new Error('You must specify player\'s ID!');
     };
@@ -55,8 +55,14 @@ class Player extends PhysicsObject {
     _.socket.on('controls', _.controls.bind(_));
     _.socket.on('p-ing', _.pong.bind(_));
     _.socket.on('disconnect', _.disconnect.bind(_));
+    _.socket.on('getPlayers', _.sendPlayers.bind(_));
   }
 
+  /**
+   * Send list of current players
+   */
+  sendPlayers() {
+  }
   /**
    * @private
    * @param {Vector} controls Controls object
