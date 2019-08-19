@@ -66,6 +66,25 @@ class Client {
     const socket = Game.socket;
     socket.on('update', this.onUpdate.bind(this));
     socket.on('command', this.onCommand.bind(this));
+    socket.on('player:connected', this.onPlayerConnected.bind(this));
+    socket.on('player:disconnected', this.onPlayerDisconnected.bind(this));
+  }
+
+  /**
+   * Do things when other player connected
+   * @param {object} player Player object
+   */
+  onPlayerConnected(player) {
+    this.addPlayer(player.id, player.x, player.y);
+  }
+
+  /**
+   * Do things when player leaving the game
+   * @param {string} id Player id
+   */
+  onPlayerDisconnected(id) {
+    console.log(`Disconnected ${id}`);
+    this.removePlayer(id);
   }
 
   /**
@@ -78,8 +97,8 @@ class Client {
     updateObj.forEach(function(upd) {
       if (Game.players[upd.id] === undefined) return;
       const player = Game.players[upd.id];
-      if (Math.abs(upd.x - player.x) > 3) player.x = upd.x;
-      if (Math.abs(upd.x - player.x) > 3) player.y = upd.y;
+      if (Math.abs(upd.x - player.x) >= 1) player.x = upd.x;
+      if (Math.abs(upd.x - player.x) >= 1) player.y = upd.y;
     });
   }
 
@@ -121,6 +140,29 @@ class Client {
     const num = Math.floor(Math.random() * (ids.length - 1));
     const id = ids[num];
     return Game.players[id] || false;
+  }
+
+  /**
+   * Add new player to the game
+   * @param {string} id Player ID
+   * @param {number} x X coordinate
+   * @param {number} y Y Coordinate
+   */
+  addPlayer(id, x, y) {
+    Game.players[id] = new Player(x, y, this.world);
+    if (Game.players[Game.socket.id] === undefined) {
+      this.camera.follow(Game.players[id]);
+    }
+  }
+
+  /**
+   * Remove player from the game
+   * @param {string} id Player id
+   */
+  removePlayer(id) {
+    const player = Game.players[id];
+    if (this.camera.followedObject === player) this.camera.stopFollow();
+    player.remove();
   }
 }
 

@@ -115,10 +115,13 @@ class Server {
         y);
 
     Game.players.push(player);
-    socket.emit('startReply', {
+    const notifyInfo = {
+      id: socket.id,
       x: player.x,
       y: player.y,
-    });
+    };
+    socket.emit('startReply', notifyInfo);
+    socket.broadcast.emit('player:connected', notifyInfo);
   }
 }
 

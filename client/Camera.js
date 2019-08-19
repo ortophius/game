@@ -15,6 +15,7 @@ class Camera extends PIXI.Container {
     this.world = world;
     this.addChild(world);
     this.followedObject = null;
+    this.updateFunc = this.updateCameraPosition.bind(this);
   }
 
   /**
@@ -22,19 +23,18 @@ class Camera extends PIXI.Container {
    * @param {PIXI.DisplayObject} object Object to follow
    */
   follow(object) {
-    const _ = this;
     this.followedObject = object;
-    Game.ticker.off('update', _.updateCameraPosition.bind(_));
-    Game.ticker.on('update', _.updateCameraPosition.bind(_));
+    Game.ticker.off('update', this.updateFunc);
+    Game.ticker.on('update', this.updateFunc);
+    console.log('Following '+object);
   }
 
   /**
    * Stop following any object
    */
   stopFollow() {
-    const _ = this;
     this.followedObject = null;
-    Game.ticker.off('update', _.updateCameraPosition.bind(_));
+    Game.ticker.off('update', this.updateFunc);
   }
 
   /**

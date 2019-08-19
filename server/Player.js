@@ -93,6 +93,7 @@ class Player extends PhysicsObject {
    * Cleaning up after disconnecting.
    */
   disconnect() {
+    this.socket.broadcast.emit('player:disconnected', this.socket.id);
     Game.players.splice(
         Game.players.indexOf(this),
         1
